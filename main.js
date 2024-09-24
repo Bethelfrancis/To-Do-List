@@ -7,7 +7,7 @@ const closeFormBtn = document.querySelector('.close-task-form');
 const displayTask = document.getElementById('task-display');
 const updateTaskBtn = document.querySelector('.add-task-input')
 
-const taskData = [];
+const taskData = JSON.parse(localStorage.getItem('task')) || [];
 let currentTask = {}
 
 const addTaskContainer = () => {
@@ -54,7 +54,9 @@ const deleteTask = (btn) => {
     const dataId = taskData.findIndex(items => items.id === taskElement.id);
 
     taskElement.remove();
-    taskData.splice(dataId, 1)
+    taskData.splice(dataId, 1);
+    localStorage.setItem('task', JSON.stringify(taskData));
+    addTaskContainer()
 }
 
 const editTask = (btn) => {
@@ -102,5 +104,8 @@ taskForm.addEventListener('submit', e => {
     descriptionInput.value = ''
     displayTask.style.display = 'flex'
 
+    localStorage.setItem('task', JSON.stringify(taskData))
     console.log(`Current task count: ${taskData.length}`)
 })
+
+document.addEventListener('DOMContentLoaded', addTaskContainer)

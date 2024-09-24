@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To Do List</title>
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="icon" href="./todo-favicon.png">
+    </head>
+    <body>
+
+        <main>
+            <h1>Todo List</h1>
+            <div class="todo-app">
+                <button class="add-task-btn" id="add-new-task">Add New Task</button>
+                <form class="task-input" id="task-input">
+                    <button class="close-task-form">&times;</button>
+                    <div class="task-form">
+                        <label class="form-label" for="title-input">
+                            Title
+                            <input type="text" class="form-input" id="title-input" value="" required />
+                        </label>
+                        <label class="form-label" for="date-input">
+                            Date
+                            <input type="date" class="form-input" id="date-input" value="" />
+                        </label>
+                        <label class="form-label" for="description-input">
+                            Description
+                            <textarea class="form-input" id="description-input" cols="30" rows="5"></textarea>
+                        </label>
+                    </div>
+                    <button class="add-task-input" type="submit">Add Task</button>
+                </form>
+                <div id="task-display">
+                </div>
+            </div>
+        </main>
+        
+        <script src="./main.js"></script>
+    </body>
+</html>
